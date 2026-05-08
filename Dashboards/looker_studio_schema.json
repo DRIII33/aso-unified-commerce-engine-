@@ -1,0 +1,135 @@
+{
+  "report_name": "ASO Operations Analytics Hub: Revenue, Labor & Market Resilience",
+  "data_sources": [
+    {
+      "id": "ds_daily_revenue_metrics",
+      "type": "BIGQUERY",
+      "project_id": "driiiportfolio",
+      "dataset_name": "aso_operations_2026",
+      "view_name": "vw_daily_revenue_metrics"
+    },
+    {
+      "id": "ds_hourly_labor_transactions",
+      "type": "BIGQUERY",
+      "project_id": "driiiportfolio",
+      "dataset_name": "aso_operations_2026",
+      "view_name": "vw_hourly_labor_transactions_joined"
+    }
+  ],
+  "pages": [
+    {
+      "title": "Page 1: Revenue & Monetization Intelligence",
+      "data_source_id": "ds_daily_revenue_metrics",
+      "visualizations": [
+        {
+          "type": "SCORECARD",
+          "metric": "daily_revenue",
+          "title": "Total Net Revenue (Deduplicated)",
+          "format": "CURRENCY"
+        },
+        {
+          "type": "SCORECARD",
+          "metric": "redownload_ratio",
+          "title": "Redownload Ratio (Target: 2.0)",
+          "format": "DECIMAL"
+        },
+        {
+          "type": "DONUT_CHART",
+          "dimension": "platform",
+          "metric": "daily_revenue",
+          "title": "Revenue Split: Apple IAP vs. External Payments",
+          "format": "PERCENTAGE"
+        },
+        {
+          "type": "TIME_SERIES",
+          "dimension": "transaction_date",
+          "metrics": [
+            {
+              "field": "daily_revenue",
+              "filter_by_platform": "Apple"
+            },
+            {
+              "field": "daily_revenue",
+              "filter_by_platform": "External"
+            }
+          ],
+          "title": "Daily Revenue Trend (Pre/Post-April 26 Algorithmic Impact)"
+        }
+      ]
+    },
+    {
+      "title": "Page 2: Labor Optimization & Peak Hour Scheduling",
+      "data_source_id": "ds_hourly_labor_transactions",
+      "visualizations": [
+        {
+          "type": "SCORECARD",
+          "metric": "splh",
+          "title": "Peak Hour SPLH",
+          "filter": "is_peak_flag=1",
+          "format": "CURRENCY"
+        },
+        {
+          "type": "SCORECARD",
+          "metric": "splh",
+          "title": "Non-Peak Hour SPLH",
+          "filter": "is_peak_flag=0",
+          "format": "CURRENCY"
+        },
+        {
+          "type": "HEATMAP_TABLE",
+          "dimension_row": "day_of_week",
+          "dimension_column": "hour_of_day",
+          "metric": "hourly_revenue",
+          "title": "Hourly Revenue Heatmap",
+          "conditional_formatting": {
+            "metric": "hourly_revenue",
+            "rule": "GREATER_THAN",
+            "value": "average",
+            "color": "DARK_BLUE"
+          }
+        },
+        {
+          "type": "COMBO_CHART",
+          "dimension": "hour_of_day",
+          "metrics_bar": [
+            "hourly_revenue"
+          ],
+          "metrics_line": [
+            "active_headcount"
+          ],
+          "title": "Hourly Revenue vs. Current Staffing (Flat Allocation Problem)"
+        }
+      ]
+    },
+    {
+      "title": "Page 3: Algorithmic Health & Agentic Commerce Readiness",
+      "data_source_id": "ds_hourly_labor_transactions",
+      "visualizations": [
+        {
+          "type": "TIME_SERIES_AREA",
+          "dimension": "hour_timestamp",
+          "metric": "agentic_search_volume",
+          "title": "AI Agent Traffic Volume (Answer Engine Optimization Tracking)",
+          "reference_line": {
+            "value": 3728,
+            "label": "Pre-Earthquake Average"
+          }
+        },
+        {
+          "type": "BAR_CHART",
+          "dimension": "algorithmic_period",
+          "metric": "agentic_search_volume",
+          "title": "Algorithmic Impact: 40% Traffic Decline (April 26)"
+        },
+        {
+          "type": "GAUGE",
+          "metric": "aeo_readiness_score",
+          "min": 0,
+          "max": 10,
+          "current_value_hardcoded": 4,
+          "title": "AEO Readiness Score"
+        }
+      ]
+    }
+  ]
+}
