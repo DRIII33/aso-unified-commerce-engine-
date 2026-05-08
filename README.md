@@ -30,7 +30,7 @@ This repository contains an end-to-end data pipeline demonstrating the **Analyti
 ---
 
 ## Repository Structure
-
+```
     aso-unified-commerce-engine/
 ├── README.md 
 ├── CHANGELOG.md 
@@ -65,7 +65,7 @@ This repository contains an end-to-end data pipeline demonstrating the **Analyti
     ├── aso_transactions_raw.csv 
     ├── austin_labor_metrics.csv 
     └── data_quality_report.csv 
-
+```
 ---
 
 ## Quick Start Guide
