@@ -1,0 +1,24 @@
+check_category,check_name,total_rows,null_count,result
+LABOR TABLE,"Date Range - April 1-30, 2026",720,720,PASS
+LABOR TABLE,Null Count - active_headcount,720,0,PASS
+LABOR TABLE,Null Count - agentic_search_volume,720,0,PASS
+LABOR TABLE,Null Count - is_peak_flag,720,0,PASS
+LABOR TABLE,Null Count - location,720,0,PASS
+LABOR TABLE,Null Count - timestamp,720,0,PASS
+LABOR TABLE,Range Validation - active_headcount (15-55),720,720,PASS
+LABOR TABLE,Range Validation - agentic_search_volume (500-10000),720,720,PASS
+LABOR TABLE,Uniqueness - timestamp (hourly),720,720,PASS
+LABOR TABLE,Value Validation - is_peak_flag (0 or 1),720,720,PASS
+LABOR TABLE,Value Validation - location (Austin_Hub),720,720,PASS
+TRANSACTION TABLE,"Date Range - April 1-30, 2026",98124,98124,PASS
+TRANSACTION TABLE,External Payment Duplication Rate (~15%),85282,12842,INFO
+TRANSACTION TABLE,Null Count - amount,98124,0,PASS
+TRANSACTION TABLE,Null Count - is_redownload,98124,0,PASS
+TRANSACTION TABLE,Null Count - platform,98124,0,PASS
+TRANSACTION TABLE,Null Count - timestamp,98124,0,PASS
+TRANSACTION TABLE,Null Count - transaction_id,98124,0,PASS
+TRANSACTION TABLE,Null Count - user_id,98124,0,PASS
+TRANSACTION TABLE,Range Validation - amount (0.99-149.99),98124,98124,PASS
+TRANSACTION TABLE,Redownload Ratio (2:1 expected),98124,65123,INFO
+TRANSACTION TABLE,Uniqueness - transaction_id,98124,98124,PASS
+TRANSACTION TABLE,Value Validation - platform,98124,98124,PASS
