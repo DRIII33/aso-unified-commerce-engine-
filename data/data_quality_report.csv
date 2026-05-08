@@ -1,0 +1,37 @@
+check_name,status,details,severity,timestamp
+Transaction columns match schema,True,"Expected: ['transaction_id', 'user_id', 'timestamp', 'platform', 'amount', 'is_redownload'], Actual: ['transaction_id', 'user_id', 'timestamp', 'platform', 'amount', 'is_redownload']",INFO,2026-05-05T23:19:16.457658
+Data type correct: transaction_id,True,"Expected: object, Actual: object",INFO,2026-05-05T23:19:16.458093
+Data type correct: user_id,True,"Expected: object, Actual: object",INFO,2026-05-05T23:19:16.458157
+Data type correct: timestamp,True,"Expected: datetime64[ns], Actual: datetime64[ns]",INFO,2026-05-05T23:19:16.458243
+Data type correct: platform,True,"Expected: object, Actual: object",INFO,2026-05-05T23:19:16.458292
+Data type correct: amount,True,"Expected: float64, Actual: float64",INFO,2026-05-05T23:19:16.458343
+Data type correct: is_redownload,True,"Expected: bool, Actual: bool",INFO,2026-05-05T23:19:16.458387
+No nulls in transaction_id,True,Null count: 0,INFO,2026-05-05T23:19:16.466866
+No nulls in user_id,True,Null count: 0,INFO,2026-05-05T23:19:16.473284
+No nulls in timestamp,True,Null count: 0,INFO,2026-05-05T23:19:16.473734
+No nulls in platform,True,Null count: 0,INFO,2026-05-05T23:19:16.478490
+No nulls in amount,True,Null count: 0,INFO,2026-05-05T23:19:16.478867
+No nulls in is_redownload,True,Null count: 0,INFO,2026-05-05T23:19:16.479062
+transaction_id values are unique,True,"Unique: 98124, Total: 98124",INFO,2026-05-05T23:19:16.519634
+All platform values are valid,True,"Valid values: ['Apple_IAP', 'External_Link'], Found: ['Apple_IAP', 'External_Link']",INFO,2026-05-05T23:19:16.525308
+Transaction amounts within valid range (0.99-149.99),True,"Min: $0.99, Max: $149.99",INFO,2026-05-05T23:19:16.526057
+Redownload ratio within tolerance (2.0 ±0.2),True,"Ratio: 1.97, Expected: 2.0, Redownloads: 65,123, New: 33,001",INFO,2026-05-05T23:19:16.541031
+External payment duplication rate within tolerance (15% ±5%),True,"Rate: 15.1%, Expected: 15.0%, Apple IAP: 85,282, External: 12,842",INFO,2026-05-05T23:19:16.570975
+"Timestamps within expected range (April 1-30, 2026)",True,"Min: 2026-04-01 00:00:36.306955, Max: 2026-04-30 23:56:04.484818",INFO,2026-05-05T23:19:16.572288
+Transaction row count within expected range (70K-220K),True,"Actual: 98,124, Expected range: 70,000-220,000",INFO,2026-05-05T23:19:16.572538
+Labor columns match schema,True,"Expected: ['timestamp', 'location', 'active_headcount', 'agentic_search_volume', 'is_peak_flag'], Actual: ['timestamp', 'location', 'active_headcount', 'agentic_search_volume', 'is_peak_flag']",INFO,2026-05-05T23:19:16.572871
+No nulls in timestamp,True,Null count: 0,INFO,2026-05-05T23:19:16.573331
+No nulls in location,True,Null count: 0,INFO,2026-05-05T23:19:16.573558
+No nulls in active_headcount,True,Null count: 0,INFO,2026-05-05T23:19:16.573697
+No nulls in agentic_search_volume,True,Null count: 0,INFO,2026-05-05T23:19:16.573870
+No nulls in is_peak_flag,True,Null count: 0,INFO,2026-05-05T23:19:16.574009
+Hourly timestamps are unique,True,"Unique: 720, Expected: 720",INFO,2026-05-05T23:19:16.574575
+All location values are Austin_Hub,True,Found: ['Austin_Hub'],INFO,2026-05-05T23:19:16.575009
+Headcount values within reasonable range (15-55 FTE),True,"Min: 20, Max: 50",INFO,2026-05-05T23:19:16.575346
+Peak flag values are 0 or 1,True,"Found: [np.int64(0), np.int64(1)]",INFO,2026-05-05T23:19:16.575653
+"Peak hours count reasonable (~120, representing 4 hours/day)",True,Peak hours: 150 (20.8%),INFO,2026-05-05T23:19:16.576582
+Traffic volume within expected range (500-10K agents/hour),True,"Min: 608, Max: 9,877",INFO,2026-05-05T23:19:16.576979
+Labor data contains expected row count (720 hours),True,"Actual: 720, Expected: 720",INFO,2026-05-05T23:19:16.577130
+"Timestamps within expected range (April 1-30, 2026)",True,"Min: 2026-04-01 00:00:00, Max: 2026-04-30 23:00:00",INFO,2026-05-05T23:19:16.577629
+Transaction and labor data date ranges align,True,"Transactions: 2026-04-01 00:00:36.306955 to 2026-04-30 23:56:04.484818, Labor: 2026-04-01 00:00:00 to 2026-04-30 23:00:00",INFO,2026-05-05T23:19:16.579253
+Peak hours (5 PM-9 PM) generate >=37.5% of daily revenue,True,Peak revenue: 37.7%,INFO,2026-05-05T23:19:16.586235
